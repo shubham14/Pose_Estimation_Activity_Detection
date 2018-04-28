@@ -1,0 +1,44 @@
+* TODO Files' Description
+
+
+  - train/train.py -- deprecated
+    1) Takes in the input video and or path and runs the openpose
+       engine to get the JSONs and the annotated images.
+
+  - pipeline.sh
+    - An alternate script to generate annotations and pose data using
+      openpose from a video.
+
+  - single_image.sh
+    - Script does the same as pipeline.sh but for a single image.
+    
+  - pipeline.py -- DON'T USE
+  - videoWriter.py -- DON'T USE
+
+  - hough_lines_out.m
+    - Function calculates Hough lines for the pavement.
+
+  - proc_image.m
+    - Called by python script to get the Hough lines
+
+  - transformers.py
+    - Has video transform function (a higher order function that takes
+      transforms and applies them on a frame-by-frame basis)
+
+  - get_roi_video.py
+    - Uses transformers to the get the region of interest.  
+      + transform == identity (no transform)
+      + transform == hough (Uses Hough line to remove the road.)
+      + Interfaces with matlab via matlab.engine for the Hough transform.
+
+
+  - gen_data.sh
+    + This is used for annotating images once we have the JSON stating
+      the Pose for every frame
+
+  - train/poseClassifier.py
+    - Does the actual pose classification.  It performs one-class SVM
+      training and classification as well as the fuzzy logic on the
+      images. 
+
+  - train/svmClassifier.py  -- Deprecated
